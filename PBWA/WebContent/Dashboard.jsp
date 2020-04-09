@@ -134,7 +134,6 @@
 
 			<div align="center">
 
-
 				
 				BALANCE<c:out value="${tempB.total}" />
 
