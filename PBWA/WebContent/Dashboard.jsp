@@ -5,7 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Dashboard</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="path/css" />
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+
+
+
+
+<title>Dashoard</title>
 </head>
 <body>
 
@@ -16,9 +24,9 @@
 
 
 
-		<c:if test="${ProductExpense == null}">
+	<%-- 	<c:if test="${ProductExpense == null}"> --%>
 			<form action="insert" method="post">
-		</c:if>
+	<%-- 	</c:if> --%>
 
 
 		<table border="1">
@@ -94,11 +102,11 @@
 
 
 
-		<h1 align="left">All Deposits</h1>
+		<h1>All Deposits</h1>
 
 		<!-------------  TABLE DEPOSIT  -------- -->
 
-		<table align="left" border="1">
+		<table border="1">
 
 			<tr>
 				<th>ID</th>
