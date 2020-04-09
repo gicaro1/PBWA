@@ -128,22 +128,7 @@
 		 private Double Total = 0;
 		
 		public double sumUp_Balance (Double ${ELISTBAL} ){ --%>
-<%-- 
-		<%  
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		%> --%>
+
 
 
 
