@@ -6,7 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- <link rel="stylesheet" href="css/styles.css" /> -->
+
+
+<LINK REL="StyleSheet" HREF="<%=request.getContextPath()%>/css/style.css" TYPE="text/css">
+ 
 <title>Deposit Page</title>
 </head>
 <body>
@@ -26,13 +29,13 @@
 			
 				<tr>
 					<th>Sum:</th>
-					<td><input type="text" name="total" size="10"
+					<td><input type="text" name="total" size="10" placeholder="Cash"
 						value="<c:out value='${ProductExpense.sum}' />" /></td>
 				</tr>
 				
 				<tr>
 					<th>Date:</th>
-					<td><input type="text" name="dateD" size="45"
+					<td><input type="text" name="dateD" size="20"  placeholder="Date"
 						value="<c:out value='${ProductExpense.dfec}' />" /></td>
 				</tr>
 
