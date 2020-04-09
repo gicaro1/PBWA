@@ -124,10 +124,6 @@
 		<c:forEach var="tempB" items="${ELISTBAL}">
 
 
-
-
-
-
 			<div align="center">
 
 
