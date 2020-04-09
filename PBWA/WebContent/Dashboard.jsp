@@ -89,7 +89,7 @@
 				</tr>
 
 			</c:forEach>
-	
+
 		</table>
 
 
@@ -97,10 +97,14 @@
 		<h1 align="left">All Deposits</h1>
 
 		<!-------------  TABLE DEPOSIT  -------- -->
-		
+
 		<table align="left" border="1">
 
-			<tr> <th>ID</th> <th>Deposit</th> <th>Date</th> </tr>
+			<tr>
+				<th>ID</th>
+				<th>Deposit</th>
+				<th>Date</th>
+			</tr>
 
 
 			<c:forEach var="tempB" items="${ELISTBAL}">
@@ -119,22 +123,16 @@
 
 		<c:forEach var="tempB" items="${ELISTBAL}">
 
-			<%-- 	// must be outside of the for each loop 
-		
-		List<BalanceT> totalLIst_Deposit = new ArrayList<>;
-		
-		${ELISTBAL}= totalLIst_Deposit;
-		
-		 private Double Total = 0;
-		
-		public double sumUp_Balance (Double ${ELISTBAL} ){ --%>
+
 
 
 
 
 			<div align="center">
 
-				BALANCE<c:out value="${tempB.total}" />
+
+				BALANCE
+				<c:out value="${tempB.total}" />
 
 			</div>
 
