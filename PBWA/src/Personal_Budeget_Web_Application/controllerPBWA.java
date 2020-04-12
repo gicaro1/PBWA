@@ -86,6 +86,8 @@ public class controllerPBWA extends HttpServlet {
 		
 
 		List<ProductExpense> list1 = Exp1.listAll();
+		
+		
 		request.setAttribute("ELIST", list1);
 		
 		
