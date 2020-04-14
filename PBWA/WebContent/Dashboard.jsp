@@ -157,16 +157,13 @@
 		<!------------- balance Loop -------------->
 
 		<c:set var="total" value="${0}"/>
-		
-	
-		
-
-
 		<c:forEach var="tempA" items="${ELISTBAL}">
 		
 			<c:set var="total" value="${total + tempA.total}" />
 			
 		</c:forEach>
+
+		
 
 
 		<!------------- category Loop -------------->
@@ -177,19 +174,17 @@
 		<c:set var="lastCategoryItem" value="${0}" />
 
 		<c:forEach var="temp" items="${ELIST}">
+			
+		<c:set var="len" value="${ELIST.size()}" />
 
 
 			<c:choose>
 				<c:when test="${temp.category eq 'transport'}">
-
 					<c:set var="TransporTotal" value="${TransporTotal + temp.sum}" />
-
-
 				</c:when>
 
 				<c:when test="${temp.category eq 'Travel'}">
 					<c:set var="TravelTotal" value="${TravelTotal + temp.sum}" />
-
 				</c:when>
 
 
@@ -198,15 +193,24 @@
 					
 					<c:set var="HomeTotal" value="${HomeTotal + temp.sum}" />
 					
-				<%-- 		<c:if test="${(temp.category eq 'home' ) && ( temp  eq ELIST.get(3)}">
-							<c:set var="lastCategoryItem" value="${temp.category}" /> //  lastCategoryItem is 20
-								<c:set var ="total" value="${total - lastCategoryItem}" />
-									<c:out value="conditions meet" />
-									
+					<c:if test="${temp.category ne 'home' }">
+						<c:set var="total" value="${total - HomeTotal}" />
+					</c:if>
+					
+					
+					
 				
-						</c:if>  --%>
-				<%-- ${myArray[fn:length(myArray)-1]} --%>
+					
+				<%-- 	<!----------- Substrac From Balance --------->
+						<c:set var="TempC" value="${temp.sum}" />
+			
+					<c:if test="${temp.sum == null }">
+					
+						<c:set var="susbtract" value="${TempC}" />
 						
+						<c:set var="total" value="${total - susbtract}" />
+	
+					</c:if> --%>
 		
 				</c:otherwise>
 			</c:choose>
@@ -240,8 +244,11 @@
 			<br> HOME
 			<c:out value="${HomeTotal}" />
 			<br>
-			<br> unique value
-			<c:out value="${lastCategoryItem}" />
+	
+			
+			
+		
+			<c:out value="${len}" />
 			<br>
 
 		</div>

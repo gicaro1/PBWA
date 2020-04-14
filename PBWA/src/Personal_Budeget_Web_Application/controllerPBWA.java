@@ -39,9 +39,9 @@ public class controllerPBWA extends HttpServlet {
 		try {
 			switch (action) {
 
-			case "/new":
-				showNewForm(request, response);
-				break;
+//			case "/new":
+//				showNewForm(request, response);
+//				break;
 			case "/insert":
 				insertExpense(request, response);
 
@@ -182,12 +182,12 @@ public class controllerPBWA extends HttpServlet {
 	
 	
 	
-
-	private void showNewForm(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Dashboard.jsp");
-		dispatcher.forward(request, response);
-	}
+//
+//	private void showNewForm(HttpServletRequest request, HttpServletResponse response)
+//			throws ServletException, IOException {
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("Dashboard.jsp");
+//		dispatcher.forward(request, response);
+//	}
 
 	// <------------------INSERT METHOD-------------------> //
 
