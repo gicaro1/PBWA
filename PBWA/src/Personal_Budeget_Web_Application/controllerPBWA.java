@@ -1,6 +1,7 @@
 package Personal_Budeget_Web_Application;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -48,7 +49,10 @@ public class controllerPBWA extends HttpServlet {
 				break;
 			case "/insertDep":
 				insertDeposit(request, response);
-			
+				break;
+				
+			case "/login":
+				login(request, response);
 				break;
 	
 
@@ -78,8 +82,62 @@ public class controllerPBWA extends HttpServlet {
 			throw new ServletException(ex);
 		}
 	}
+//	<--------------------- LOGIN METHOD -------------------->
+private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException  {
+		
+    response.setContentType("text/html");  
+    PrintWriter out = response.getWriter();  
+          
+    String username=request.getParameter("username");  
+    String userpass=request.getParameter("userpass");  
+          
+    if(Exp1.validate(username, userpass)){  
+       
+    	request.setAttribute("LOGIN_USER", request.getParameter("username"));
+    	
+	List<ProductExpense> list1 = Exp1.listAll();
+		
+		
+		request.setAttribute("ELIST", list1);
+		
+		
+		
+		List<BalanceT> list2 = Exp1.listBalance();
+//		<---- SUM METHOD ----->
+		
+//	
+//		Double counterTotal = Exp1.SumAllDeposit(list2);
+		
+		request.setAttribute("ELISTBAL", list2);
+    	
+    	
+    	
 
-//	<--------------------- lIST METHODS -------------------->
+        RequestDispatcher rd=request.getRequestDispatcher("Dashboard.jsp");  
+        rd.forward(request,response); 
+    
+        
+    
+        
+        
+        
+        
+        
+    }  
+    else{  
+        out.print("Sorry username or password error");  
+        RequestDispatcher rd=request.getRequestDispatcher("index.jsp");  
+        rd.include(request,response);  
+    }  
+	
+	
+	
+	
+	
+		
+	}
+
+
 
 	private void listexpenses(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, SQLException {

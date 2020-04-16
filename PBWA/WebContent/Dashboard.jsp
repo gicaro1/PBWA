@@ -2,16 +2,29 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/styles.css" />
+
 
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+<!-- google Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Nunito:400,700,800i&display=swap" rel="stylesheet">
+<!-- Font awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- bootraap -->
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -24,9 +37,31 @@
 <body>
 
 
-	<a href="deposit.jsp">Deposit</a>
+	<a href="deposit.jsp">Deposit</a><br />
+
+	<a href="index.jsp">login</a><br />
+	
+	<button type="button" class="btn btn-warning">Warning</button> <br />
+	
+  <h3><i class="fa fa-dollar "></i> </h3>
+  <i class="fa fa-facebook social_icon fa-3x d-block"></i> 
+  
 
 	<div align="center">
+	
+	<div>
+	
+			<h1>
+			 Welcome <c:out value="${LOGIN_USER}" />	
+			
+			
+			
+			</h1>
+	
+	
+	</div>
+	
+
 
 
 
@@ -60,18 +95,6 @@
 						value="<c:out value='${EX1.dfec}' />" /></td>
 				</tr>
 
-
-
-
-
-
-
-
-
-
-
-
-
 				<tr>
 					<th>Category:</th>
 
@@ -79,14 +102,6 @@
 						<input type="radio" name="dish" value="home"> Home <input
 						type="radio" name="dish" value="Travel"> Travel</td>
 				<tr>
-
-
-
-
-
-
-
-
 
 					<td colspan="2" align="center"><input type="submit"
 						value="Save" /></td>
@@ -172,10 +187,42 @@
 		<c:set var="TravelTotal" value="${0}" />
 		<c:set var="HomeTotal" value="${0}" />
 		<c:set var="lastCategoryItem" value="${0}" />
+		
+		
+		
+		
+			<!--  test Variable  -->
+			<c:set var="x" value="${0}" />
+			<c:set var="z" value="${0}" />
+			<!--end  -->
+			
+			
+			
+			<c:set var="len" value="${ELIST.indexOf(ELIST.size()-1)}" />
+			
+			
+			
 
 		<c:forEach var="temp" items="${ELIST}">
 			
-		<c:set var="len" value="${ELIST.size()}" />
+		
+		
+		<!-- star test 1  -->
+		
+		
+		<%-- 	<c:set var="b" value="true" /> --%>
+			
+		<%-- 	<c:set var="x" value="${ELIST.indexOf(ELIST.size()-1) )}" /> --%>
+			
+	<%-- 		<c:if test="${x eq ELIST.indexOf(ELIST.size()-1)  }">
+			
+				<c:set var="z" value="${temp.sum}" />
+			
+			</c:if> --%>
+	
+		
+		
+		<!-- end -->
 
 
 			<c:choose>
@@ -193,7 +240,7 @@
 					
 					<c:set var="HomeTotal" value="${HomeTotal + temp.sum}" />
 					
-					<c:if test="${temp.category ne 'home' }">
+					<c:if test="${temp.category == null }">
 						<c:set var="total" value="${total - HomeTotal}" />
 					</c:if>
 					
@@ -214,6 +261,8 @@
 		
 				</c:otherwise>
 			</c:choose>
+			
+			
 
 
 		</c:forEach>
@@ -244,11 +293,16 @@
 			<br> HOME
 			<c:out value="${HomeTotal}" />
 			<br>
+			
+		
 	
 			
 			
 		
 			<c:out value="${len}" />
+			<br>
+			
+			Test<c:out value="${z}" />
 			<br>
 
 		</div>

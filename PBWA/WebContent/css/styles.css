@@ -3,3 +3,12 @@ h1{
 	font-size: 45px;
 	
 }
+body{
+	
+	background-color: #fafafa;
+}
+a{
+	font-size: 22px;
+	text-decoration: none;
+	padding: 10px;
+}

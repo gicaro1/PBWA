@@ -8,24 +8,20 @@
 <meta charset="UTF-8">
 
 
-<LINK REL="StyleSheet" HREF="<%=request.getContextPath()%>/css/style.css" TYPE="text/css">
- 
+<%-- <LINK REL="StyleSheet" HREF="<%=request.getContextPath()%>/css/style.css" TYPE="text/css">
+  --%>
 <title>Deposit Page</title>
 </head>
 <body>
 	<h1>Deposit</h1>
 
 	<div align="center" >
+	<!-- 		action="showbalance" -->
 
-
-		<form   action="insertDep"   action="showbalance" method="post">
+		<form   action="insertDep"    method="post">
 				<!-- <input type="hidden" name="showbalance"  /> -->
 			
-		
-
-
 			<table border="1">
-			
 			
 				<tr>
 					<th>Sum:</th>
@@ -38,7 +34,6 @@
 					<td><input type="text" name="dateD" size="20"  placeholder="Date"
 						value="<c:out value='${ProductExpense.dfec}' />" /></td>
 				</tr>
-
 
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
