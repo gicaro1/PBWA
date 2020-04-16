@@ -43,8 +43,13 @@
 	
 	<button type="button" class="btn btn-warning">Warning</button> <br />
 	
-  <h3><i class="fa fa-dollar "></i> </h3>
-  <i class="fa fa-facebook social_icon fa-3x d-block"></i> 
+
+  <i class="fa fa-facebook "></i> <br />
+  
+<!--   <form action="logout " method="get"> 
+  	 <input type="submit" value="logout" /> 
+  logout</form> -->
+
   
 
 	<div align="center">
@@ -52,7 +57,7 @@
 	<div>
 	
 			<h1>
-			 Welcome <c:out value="${LOGIN_USER}" />	
+			 Welcome <c:out value="${SESSION_USERNAME}" />	
 			
 			
 			

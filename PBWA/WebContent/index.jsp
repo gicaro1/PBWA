@@ -14,11 +14,15 @@
 
 	<div align="center">
 
-		<form action="login" method="post">
+		<form action="login" method="get">
+		
 			Name:<input type="text" name="username" /><br />
 			<br /> Password:<input type="password" name="userpass" /><br />
+			
 			<br /> <input type="submit" value="login" />
 		</form>
+		
+	
 
 	</div>
 
