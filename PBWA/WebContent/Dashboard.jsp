@@ -43,6 +43,8 @@
 	
 	<button type="button" class="btn btn-warning">Warning</button> <br />
 	
+	<a href="${pageContext.request.servletContext.contextPath }/logoutController">logout</a>
+	
 
   <i class="fa fa-facebook "></i> <br />
   
@@ -57,7 +59,7 @@
 	<div>
 	
 			<h1>
-			 Welcome <c:out value="${SESSION_USERNAME}" />	
+			 Welcome <c:out value="${USER_SESSION}" />	
 			
 			
 			

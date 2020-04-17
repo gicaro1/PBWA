@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 //import javax.servlet.http.HttpSession;
 
 @WebServlet("/controllerPBWA")
@@ -30,6 +31,19 @@ public class controllerPBWA extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		
+		HttpSession session1 = request.getSession();
+		Object  username = session1.getAttribute("username");
+		
+		if(username != null ) { // if there is a username
+			request.setAttribute("USER_SESSION", username);
+			
+			getServletContext().getRequestDispatcher("Dashboard.jsp").include(request, response);
+			
+		}
+		
+		
 
 	}
 
@@ -98,6 +112,8 @@ public class controllerPBWA extends HttpServlet {
 
 
 		if (Exp1.validate(username, userpass)) {
+			
+		request.getSession(true).setAttribute("USER_SESSION", username);
 			
 
 				List<ProductExpense> list1 = Exp1.listAll();
