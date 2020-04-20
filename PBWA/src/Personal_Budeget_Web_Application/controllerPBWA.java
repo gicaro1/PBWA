@@ -1,6 +1,7 @@
 package Personal_Budeget_Web_Application;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -50,6 +51,9 @@ public class controllerPBWA extends HttpServlet {
 				insertDeposit(request, response);
 			
 				break;
+			case "/login":
+				login(request, response);
+				break;
 	
 
 			case "/delete":
@@ -62,10 +66,10 @@ public class controllerPBWA extends HttpServlet {
 				
 		
 
-//			case "/update":
-//				updateExpense(request, response);
-//				
-//				break;
+			case "/update":
+				updateExpense(request, response);
+				
+				break;
 			default:
 				
 			
@@ -79,6 +83,41 @@ public class controllerPBWA extends HttpServlet {
 		}
 	}
 
+//	 <-----------LOGIN ---------------->
+	private void login(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, SQLException {
+
+		PrintWriter out = response.getWriter();
+		String username = request.getParameter("username");
+		String userpass = request.getParameter("userpass");
+
+		response.setContentType("text/html");
+
+//		<-------------------SESSION -------------------------->
+	
+//
+
+
+		if (Exp1.validate(username, userpass)) {
+			
+		request.getSession(true).setAttribute("USER_SESSION", username);
+			
+
+				List<ProductExpense> list1 = Exp1.listAll();
+				request.setAttribute("ELIST", list1);
+				List<BalanceT> list2 = Exp1.listBalance();
+				request.setAttribute("ELISTBAL", list2);
+
+				RequestDispatcher rd = request.getRequestDispatcher("Dashboard.jsp");
+				rd.forward(request, response);
+			
+
+			} else {
+				out.print("Sorry username or password error");
+				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+				rd.include(request, response);
+			}
+	}
 //	<--------------------- lIST METHODS -------------------->
 
 	private void listexpenses(HttpServletRequest request, HttpServletResponse response)
@@ -107,25 +146,25 @@ public class controllerPBWA extends HttpServlet {
 
 //	
 //
-//	private void updateExpense(HttpServletRequest request, HttpServletResponse response)
-//			throws SQLException, IOException {
-//
-//		int idUpdated = Integer.parseInt(request.getParameter("id"));
-//
-//		Double to = Double.parseDouble(request.getParameter("total"));
-//		
-//		String dat = request.getParameter("dateD");
-//		
-//		
-//		
-//
-//		BalanceT BalP = new BalanceT( to, dat,idUpdated);
-//
-//		Exp1.updateExpense(BalP);
-//		
-//		response.sendRedirect("list");
-//
-//	}
+	private void updateExpense(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException {
+
+		int idUpdated = Integer.parseInt(request.getParameter("id"));
+
+		Double to = Double.parseDouble(request.getParameter("total"));
+		
+		String dat = request.getParameter("dateD");
+		
+		
+		
+
+		BalanceT BalP = new BalanceT( to, dat,idUpdated);
+
+		Exp1.updateExpense(BalP);
+		
+		response.sendRedirect("list");
+
+	}
 	
 	
 	

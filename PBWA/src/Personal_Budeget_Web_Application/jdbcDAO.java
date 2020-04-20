@@ -38,6 +38,35 @@ public class jdbcDAO {
 			jdbcConnection.close();
 		}
 	}
+	
+//	<----------------- METHOD VALIDATE----------------------->
+
+	public boolean validate(String username, String userpass)  throws SQLException {
+		
+		boolean status=false;  
+
+
+		String sql = "SELECT * FROM Login WHERE Name=? and Password=?";
+		connect();
+		PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+
+		
+
+		statement.setString(1,username );
+		statement.setString(2, userpass);
+
+		ResultSet resultSet = statement.executeQuery();
+
+	
+		status=resultSet.next();
+		statement.close();
+		return status;
+		
+	
+		
+
+
+	}
 
 //	<-------------LIST ALL ITEMS METHOD --------------->
 
