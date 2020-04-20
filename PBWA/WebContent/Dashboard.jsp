@@ -71,8 +71,6 @@
 
 
 
-
-
 		<%-- 	<c:if test="${ProductExpense == null}"> --%>
 		<form action="insert" method="post">
 			<%-- 	</c:if> --%>
