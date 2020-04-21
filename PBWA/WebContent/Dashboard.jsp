@@ -205,9 +205,9 @@
 	</div>
 
 	<%
-	 Double  transportChartPie  =  (Double)pageContext.getAttribute("TransporTotal"); 
-	Double  homeChartPie  =  (Double)pageContext.getAttribute("HomeTotal"); 
-	Double  TravelChartPie  =  (Double)pageContext.getAttribute("TravelTotal"); 
+		Double  transportChartPie  =  (Double)pageContext.getAttribute("TransporTotal"); 
+		Double  homeChartPie  =  (Double)pageContext.getAttribute("HomeTotal"); 
+		Double  TravelChartPie  =  (Double)pageContext.getAttribute("TravelTotal"); 
 	
 		Gson gsonObj = new Gson();
 		Map<Object, Object> map = null;
