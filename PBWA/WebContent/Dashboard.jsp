@@ -27,6 +27,8 @@
 <link rel="stylesheet" href="http://localhost:8080/PBWA/css/styles.css" />
 
 
+
+
 <title>Dashboard</title>
 </head>
 <body>
@@ -41,8 +43,8 @@
 	<br />
 	<i class="fa fa-instagram fa-lg m-1"> Instagram</i>
 	
-	<div  class="container">
-	<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+	<div  class="chart">
+	<div id="chartContainer"></div>
 	
 	
 	</div>
@@ -254,6 +256,7 @@
 
 		}
 	</script>
+
 	
 	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 

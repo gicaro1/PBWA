@@ -2,3 +2,13 @@ body{
 	background-color: #d3d3d3;
 	
 }
+
+.chart{
+	height: 400px; 
+	width: 700px;
+	display: block;
+	margin: 20px auto; 
+	 
+	
+	
+}
